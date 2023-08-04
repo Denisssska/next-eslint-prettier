@@ -1,0 +1,35 @@
+@import './styles/vars.scss';
+@import './styles/vars';
+@import './styles/base';
+
+body {
+  font-family: $font-open-sans;
+  background-color: $light;
+  color: $dark;
+  font-size: 16px;
+  min-width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+a {
+  cursor: pointer;
+  color: $dark;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+h1 {
+  color: $gray;
+}
+h2 {
+  transition: all 0.2s ease-in;
+}
+
+span {
+  color: $gray;
+  font-size: 16px;
+}

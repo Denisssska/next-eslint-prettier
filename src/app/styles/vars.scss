@@ -1,0 +1,81 @@
+//fonts
+
+$font-open-sans: 'Open Sans', sans-serif;
+$font-poppins: 'Poppins', sans-serif;
+
+//colors
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$lightGray: #e8e8e8;
+$gray: #868e96;
+$gray-dark: #343a40;
+$primary: #e46226;
+$secondary: #868e96;
+$success: #47a447;
+$info: #5bc0de;
+$warning: #ed9c28;
+$danger: #d2322d;
+$light: #f4f4f4;
+$dark: #1d2127;
+
+//$background: #f5f6fa;
+//$text: #9c9c9c;
+//$input-bg-color: #fff;
+//$input-text-color: #a3a3a3;
+//$button-bg-color: #7f8ff4;
+//$button-text-color: #fff;
+//breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 425px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1024px;
+$breakpoint-xxl: 1200px;
+$breakpoint-3xl: 1440px;
+$breakpoint-4xl: 2560px;
+
+//font-weight
+$bold: 700;
+//border
+$gray-border: 1px solid $gray;
+//radius border
+$radius: 7px;
+
+//box-shadow
+$shadow-first: rgba(0, 0, 0, 0.1) 0 4px 10px;
+$shadow-li-sidebar:
+  rgba(0, 0, 0, 0.25) 0 54px 55px,
+  rgba(0, 0, 0, 0.12) 0px -12px 30px,
+  rgba(0, 0, 0, 0.12) 0px 4px 6px,
+  rgba(0, 0, 0, 0.17) 0px 12px 13px,
+  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+$shadow-hover:
+  rgba(50, 50, 93, 0.25) 0 6px 12px -2px,
+  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+$shadow-card-item:
+  rgba(50, 50, 93, 0.25) 0 50px 100px -20px,
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+$shadow-card-item-active:
+  rgba(0, 0, 0, 0.12) 0 1px 3px,
+  rgba(0, 0, 0, 0.24) 0 1px 2px;
+
+@mixin grid-for-main() {
+  @media screen and (max-width: $breakpoint-lg) {
+    grid-template-columns: 2fr 5fr;
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
