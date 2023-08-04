@@ -1,4 +1,6 @@
 .git
 .next
+.prettierrc
+package.json
 dist
 node_modules

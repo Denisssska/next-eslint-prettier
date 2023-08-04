@@ -2,6 +2,17 @@
   "extends": ["next", "eslint:recommended", "plugin:prettier/recommended", "next/core-web-vitals"],
   "globals": { "React": "readonly" },
   "rules": {
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "import/order": [
+      2,
+      {
+        "groups": ["external", "builtin", "index", "sibling", "parent", "internal", "type"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always-and-inside-groups"
+      }
+    ]
   }
 }
