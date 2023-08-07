@@ -1,5 +1,7 @@
-const Portfolio = () => {
-  return <div>Portfolio</div>
-}
+import styles from './portfolio.module.scss';
 
-export default Portfolio
+const Portfolio = () => {
+  return <div className={styles.container}>Portfolio</div>;
+};
+
+export default Portfolio;

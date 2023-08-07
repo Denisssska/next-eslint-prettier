@@ -4,32 +4,24 @@
 
 body {
   font-family: $font-open-sans;
-  background-color: $light;
-  color: $dark;
+  background-color: $dark;
+  color: $white;
+  overflow-x: hidden;
   font-size: 16px;
-  min-width: 100%;
-  position: relative;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1300px;
   min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 60px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 a {
   cursor: pointer;
-  color: $dark;
+  color: inherit;
   transition: all 0.2s ease-in;
-
-  &:hover {
-    color: $white;
-  }
-}
-
-h1 {
-  color: $gray;
-}
-h2 {
-  transition: all 0.2s ease-in;
-}
-
-span {
-  color: $gray;
-  font-size: 16px;
 }

@@ -1,5 +1,7 @@
-const Blog = () => {
-  return <div>Blog</div>
-}
+import styles from './blog.module.scss';
 
-export default Blog
+const Blog = () => {
+  return <div className={styles.container}>Blog</div>;
+};
+
+export default Blog;

@@ -1,5 +1,7 @@
-const Contact = () => {
-  return <div>Contact</div>
-}
+import styles from './contact.module.scss';
 
-export default Contact
+const Contact = () => {
+  return <div className={styles.container}>Contact</div>;
+};
+
+export default Contact;

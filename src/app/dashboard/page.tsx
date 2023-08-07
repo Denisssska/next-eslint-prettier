@@ -1,5 +1,7 @@
-const Dashboard = () => {
-  return <div>Dashboard</div>
-}
+import styles from './dashboard.module.scss';
 
-export default Dashboard
+const Dashboard = () => {
+  return <div className={styles.dashboard}>Dashboard</div>;
+};
+
+export default Dashboard;

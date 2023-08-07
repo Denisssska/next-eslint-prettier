@@ -1,6 +1,8 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
+import Link from 'next/link';
+
+import styles from './navbar.module.scss';
 
 const links = [
   { id: 1, title: 'Home', url: '/' },
@@ -9,23 +11,25 @@ const links = [
   { id: 4, title: 'About', url: '/about' },
   { id: 5, title: 'Contact', url: '/contact' },
   { id: 6, title: 'Dashboard', url: '/dashboard' },
-]
+];
 
 const Navbar = () => {
   return (
-    <nav>
-      <Link href="/">MyApp</Link>
-      <div>
+    <nav className={styles.container}>
+      <Link className={styles.logo} href="/">
+        MyApp
+      </Link>
+      <div className={styles.links}>
         {links.map(link => (
           <Link key={link.id} href={link.url}>
             {link.title}
           </Link>
         ))}
 
-        <button>Logout</button>
+        <button className={styles.logout}>Logout</button>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

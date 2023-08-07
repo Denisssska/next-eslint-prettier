@@ -13,6 +13,12 @@
         },
         "newlines-between": "always-and-inside-groups"
       }
+    ],
+    "semi": ["error", "always"],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "import", "next": "*" },
+      { "blankLine": "any", "prev": "import", "next": "import" }
     ]
   }
 }
