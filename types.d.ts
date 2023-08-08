@@ -18,3 +18,9 @@ export interface Items {
   ['illustrations']: Array<Data>;
   ['websites']: Array<Data>;
 }
+export interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}

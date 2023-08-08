@@ -1,5 +1,7 @@
-export async function getAllPosts(): Promise<any> {
-  const res = await fetch('http://localhost:3000/api/posts', {
+import { Post } from '#/types';
+
+export async function getAllPosts(): Promise<Array<Post>> {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
     cache: 'no-store',
   });
 
