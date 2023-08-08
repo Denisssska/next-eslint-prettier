@@ -1,11 +1,16 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 import { getOnePost } from '@/app/actions/getOnePost';
 
-export async function generateMetadata({ params }) {
+interface Params {
+  params: {
+    id: string;
+  };
+}
+export async function generateMetadata({ params }: Params) {
   const post = await getOnePost(params.id);
   return {
     title: post.title,
