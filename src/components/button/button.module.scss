@@ -1,0 +1,11 @@
+@import '../../app/styles/vars.scss';
+
+.container {
+  padding: 20px;
+  cursor: pointer;
+  background-color: $success;
+  border: none;
+  border-radius: 5px;
+  width: max-content;
+  color: $white;
+}

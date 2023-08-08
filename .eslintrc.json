@@ -19,6 +19,13 @@
       "error",
       { "blankLine": "always", "prev": "import", "next": "*" },
       { "blankLine": "any", "prev": "import", "next": "import" }
-    ]
+    ],
+    "import/named": "error",
+
+    "import/default": "error",
+
+    "import/namespace": "error",
+
+    "import/no-absolute-path": "error"
   }
 }

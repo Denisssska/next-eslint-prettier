@@ -1,17 +1,17 @@
 @import './styles/vars.scss';
-@import './styles/vars';
+@import './styles/reset.scss';
 @import './styles/base';
 
 body {
   font-family: $font-open-sans;
-  background-color: $dark;
-  color: $white;
+
   overflow-x: hidden;
   font-size: 16px;
   max-width: 100%;
 }
 
 .container {
+  display: flex;
   max-width: 1300px;
   min-height: 100vh;
   margin: 0 auto;
@@ -23,5 +23,18 @@ body {
 a {
   cursor: pointer;
   color: inherit;
-  transition: all 0.2s ease-in;
+  transition: move all 0.2s ease-in;
+}
+.theme{
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: $white;
+  color: $dark;
+}
+
+.dark {
+  background-color: $dark;
+  color: $gray;
 }

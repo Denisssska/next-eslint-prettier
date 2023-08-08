@@ -1,0 +1,12 @@
+@keyframes move {
+  from { transform: translateY(-10px); }
+  to { transform: translateY(10px); }
+}
+@keyframes moveInContact {
+  from {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(0px) scale(1.03);
+  }
+}
