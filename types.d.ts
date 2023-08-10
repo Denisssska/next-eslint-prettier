@@ -19,8 +19,24 @@ export interface Items {
   ['websites']: Array<Data>;
 }
 export interface Post {
-  userId: number;
-  id: number;
+  _id: string;
   title: string;
-  body: string;
+  desc: string;
+  img: string;
+  content: string;
+  username: string;
+}
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  img: string;
+}
+export interface IdParams {
+  params: {
+    id: string;
+  };
+}
+export interface ClientOnlyProps {
+  children: React.ReactNode;
 }
