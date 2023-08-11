@@ -18,7 +18,7 @@ export interface Items {
   ['illustrations']: Array<Data>;
   ['websites']: Array<Data>;
 }
-export interface Post {
+export interface IPost {
   _id: string;
   title: string;
   desc: string;
@@ -26,11 +26,10 @@ export interface Post {
   content: string;
   username: string;
 }
-export interface User {
+export interface IUser {
   _id: string;
   name: string;
   email: string;
-  img: string;
 }
 export interface IdParams {
   params: {

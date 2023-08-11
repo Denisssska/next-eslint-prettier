@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -13,9 +14,9 @@ const Register = () => {
   const handleSubmit = async (e: any) => {
     console.log(e);
     e.preventDefault();
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const password = e.target[2].value;
+    const name: string = e.target[0].value;
+    const email: string = e.target[1].value;
+    const password: string = e.target[2].value;
 
     try {
       const res = await fetch('/api/auth/register', {

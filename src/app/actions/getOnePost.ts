@@ -1,6 +1,6 @@
-import { Post } from '#/types';
+import { IPost } from '#/types';
 
-export async function getOnePost(id: string): Promise<Post> {
+export async function getOnePost(id: string): Promise<IPost> {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
     cache: 'no-store',
   });

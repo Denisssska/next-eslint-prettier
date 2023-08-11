@@ -54,5 +54,5 @@ export const authOptions: AuthOptions = NextAuth({
   },
 });
 
-// export { authOptions as GET, authOptions as POST };
-export default NextAuth(authOptions);
+export { authOptions as GET, authOptions as POST };
+// export default NextAuth(authOptions);

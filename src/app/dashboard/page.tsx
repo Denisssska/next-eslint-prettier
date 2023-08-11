@@ -8,7 +8,7 @@ import useSWR from 'swr';
 
 import styles from './dashboard.module.scss';
 
-import { Post } from '#/types';
+import { IPost } from '#/types';
 
 const Dashboard = () => {
   const session = useSession();
@@ -29,11 +29,12 @@ const Dashboard = () => {
     });
   };
 
-  const { data, mutate, error, isLoading } = useSWR<Post[], Error>(
+  const { data, mutate, error, isLoading } = useSWR<IPost[], Error>(
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
-
+  console.log(data);
+  console.log(session.data);
   if (session.status == 'loading') {
     return <p>Loading...</p>;
   }
@@ -42,6 +43,7 @@ const Dashboard = () => {
   // }
 
   const handleSubmit = async (e: any) => {
+    console.log(e);
     e.preventDefault();
     const title = e.target[0].value;
     const desc = e.target[1].value;

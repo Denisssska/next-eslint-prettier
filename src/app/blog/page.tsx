@@ -7,7 +7,7 @@ import { getAllPosts } from '../actions/getAllPosts';
 
 const Blog = async () => {
   const data = await getAllPosts();
-  console.log(data);
+
   return (
     <div className={styles.mainContainer}>
       {data.map(item => (

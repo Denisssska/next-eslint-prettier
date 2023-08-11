@@ -1,16 +1,20 @@
 import { NextResponse } from 'next/server';
 
+import { IPost } from '#/types';
 import Post from '@/models/Post';
 import connect from '@/utils/db';
 
 export const GET = async (request: Request) => {
   const url = new URL(request.url);
   const username = url.searchParams.get('username');
-
+  let posts: IPost[];
   try {
     await connect();
-    // const posts = await Post.find({ username });
-    const posts = await Post.find();
+    if (username) {
+      posts = await Post.find({ username });
+    } else {
+      posts = await Post.find();
+    }
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (error) {

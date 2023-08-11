@@ -4,16 +4,17 @@ import { useRouter } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
 
 import styles from './login.module.scss';
+import Link from 'next/link'
 
 const Login = () => {
   const session = useSession();
   const router = useRouter();
-  console.log(session);
+
   if (session.status == 'loading') {
     return <p>Loading</p>;
   }
   if (session.status == 'authenticated') {
-    router?.push('dashboard');
+    router?.push('/dashboard');
   }
 
   const handleSubmit = (e: any) => {
@@ -34,6 +35,7 @@ const Login = () => {
 
       <button onClick={() => signIn('google')}>Login with Google</button>
       <button onClick={() => signIn('github')}>Login with Github</button>
+      <Link href={'/dashboard/register'}>Sign Up</Link>
     </div>
   );
 };
