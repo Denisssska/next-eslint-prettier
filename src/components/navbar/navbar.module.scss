@@ -16,8 +16,17 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  & a:focus{
+    color:$success;
+  }
 }
-
+/*.active {
+  color: $success;
+}
+/*
+.default {
+  color: inherit;
+}*/
 .logout {
   padding: 5px;
   border: none;

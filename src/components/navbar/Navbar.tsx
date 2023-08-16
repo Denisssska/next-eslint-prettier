@@ -6,6 +6,7 @@ import { signOut, useSession } from 'next-auth/react';
 import styles from './navbar.module.scss';
 
 import DarkModeToggle from '../darkMode/DarkModeToggle';
+import { usePathname, useRouter } from 'next/navigation';
 
 const links = [
   { id: 1, title: 'Home', url: '/' },
@@ -18,6 +19,8 @@ const links = [
 
 const Navbar = () => {
   const session = useSession();
+  const path = usePathname();
+
   return (
     <nav className={styles.container}>
       <Link href="/" className={styles.logo}>
@@ -25,11 +28,17 @@ const Navbar = () => {
       </Link>
       <div className={styles.links}>
         <DarkModeToggle />
-        {links.map(link => (
-          <Link key={link.id} href={link.url}>
-            {link.title}
-          </Link>
-        ))}
+        {links.map(link => {
+          return (
+            <Link
+              key={link.id}
+              href={link.url}
+              // className={link.title.toLowerCase() === path.slice(1) ? styles.active : styles.default}
+            >
+              {link.title}
+            </Link>
+          );
+        })}
         {session?.data && <Link href="/profile">Profile</Link>}
         {session.status == 'authenticated' && (
           <button

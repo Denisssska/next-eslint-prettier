@@ -10,6 +10,7 @@ import styles from './dashboard.module.scss';
 import { IPost } from '#/types';
 
 import type { RequestInit } from 'next/dist/server/web/spec-extension/request';
+import { FormEvent, FormEventHandler } from 'react';
 
 const Dashboard = () => {
   const session = useSession();
@@ -25,7 +26,7 @@ const Dashboard = () => {
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
-  console.log(session.data);
+  console.log(session);
   if (session.status == 'loading') {
     return <p>Loading...</p>;
   }
@@ -33,13 +34,12 @@ const Dashboard = () => {
     router?.push('/dashboard/login');
   }
 
-  const handleSubmit = async (e: any) => {
-    console.log(e);
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const title = e.target[0].value;
-    const desc = e.target[1].value;
-    const img = e.target[2].value;
-    const content = e.target[3].value;
+    const title = (e.currentTarget[0] as HTMLInputElement).value;
+    const desc = (e.currentTarget[1] as HTMLInputElement).value;
+    const img = (e.currentTarget[2] as HTMLInputElement).value;
+    const content = (e.currentTarget[3] as HTMLInputElement).value;
 
     try {
       await fetch('/api/posts', {
@@ -53,7 +53,7 @@ const Dashboard = () => {
         }),
       });
       mutate();
-      e.target.reset();
+      e.currentTarget.reset();
     } catch (error) {
       console.log(error);
     }
