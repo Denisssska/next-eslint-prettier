@@ -2,13 +2,14 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import RequestInit from 'node-fetch';
 
 import useSWR from 'swr';
 
 import styles from './dashboard.module.scss';
 
 import { IPost } from '#/types';
+
+import type { RequestInit } from 'next/dist/server/web/spec-extension/request';
 
 const Dashboard = () => {
   const session = useSession();
@@ -24,7 +25,6 @@ const Dashboard = () => {
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
-  console.log(error);
   console.log(session.data);
   if (session.status == 'loading') {
     return <p>Loading...</p>;

@@ -18,7 +18,6 @@ const getData = (category: 'applications' | 'illustrations' | 'websites') => {
   return notFound();
 };
 const Category: NextPage<Params> = ({ params }) => {
-  console.log(params);
   const data = getData(params.category);
   return (
     <div className={styles.container}>

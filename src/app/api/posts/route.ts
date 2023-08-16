@@ -18,7 +18,7 @@ export const GET = async (request: Request) => {
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (error) {
-    return new NextResponse('Error in response of DB', { status: 500 });
+    return new NextResponse('Error in response of posts DB', { status: 500 });
   }
 };
 
@@ -34,6 +34,6 @@ export const POST = async (request: Request) => {
 
     return new NextResponse('Post has been created', { status: 201 });
   } catch (err) {
-    return new NextResponse('Database Error', { status: 500 });
+    return new NextResponse('Database of create post Error', { status: 500 });
   }
 };

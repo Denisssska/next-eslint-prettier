@@ -30,8 +30,16 @@ const Navbar = () => {
             {link.title}
           </Link>
         ))}
+        {/* {session?.data && <Link href="/profile">Profile</Link>} */}
         {session.status == 'authenticated' && (
-          <button className={styles.logout} onClick={() => signOut()}>
+          <button
+            className={styles.logout}
+            onClick={() =>
+              signOut({
+                callbackUrl: '/',
+              })
+            }
+          >
             Logout
           </button>
         )}

@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <div className={styles.item}>
-        <h1 className={styles.title}>Геодезия как жизнь!</h1>
-        <p className={styles.desc}>Геодезия мой смысл!</p>
+        <h1 className={styles.title}>Home Page</h1>
+        <p className={styles.desc}>Home Page description</p>
         <Button text="See our Works" url="/portfolio" />
       </div>
       <div className={styles.item}>
