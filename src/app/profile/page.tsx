@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 
 const Profile = async () => {
   const session = await getServerSession();
-  console.log(session);
+
   return (
     <div>
       <h1> Profile of {session?.user?.name}</h1>

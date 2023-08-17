@@ -33,12 +33,6 @@ const Login = () => {
     const email = (e.currentTarget[0] as HTMLInputElement).value;
     const password = (e.currentTarget[1] as HTMLInputElement).value;
     const res = await signIn('credentials', { email, password, redirect: false });
-    // const formData = new FormData(e.currentTarget);
-    // const res = await signIn('credentials', {
-    //   email: formData.get('email'),
-    //   password: formData.get('password'),
-    //   redirect: false,
-    // });
     if (res && !res.error) {
       router.push('/dashboard');
     } else {
