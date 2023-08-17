@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
+import { FormEvent, useEffect } from 'react';
 import useSWR from 'swr';
 
 import styles from './dashboard.module.scss';
@@ -10,11 +11,15 @@ import styles from './dashboard.module.scss';
 import { IPost } from '#/types';
 
 import type { RequestInit } from 'next/dist/server/web/spec-extension/request';
-import { FormEvent, FormEventHandler } from 'react';
 
 const Dashboard = () => {
   const session = useSession();
   const router = useRouter();
+  useEffect(() => {
+    if (session.status == 'unauthenticated') {
+      router?.push('/dashboard/login');
+    }
+  }, [router, session.status]);
 
   const fetcher = (url: string, options: RequestInit) => {
     return fetch(url, options).then(res => {
@@ -26,13 +31,14 @@ const Dashboard = () => {
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
-  console.log(session);
+  console.log('dashboard', session);
+
   if (session.status == 'loading') {
     return <p>Loading...</p>;
   }
-  if (session.status == 'unauthenticated') {
-    router?.push('/dashboard/login');
-  }
+  // if (session.status == 'unauthenticated') {
+  //   router?.push('/dashboard/login');
+  // }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

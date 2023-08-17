@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
 
 import styles from './navbar.module.scss';
 
 import DarkModeToggle from '../darkMode/DarkModeToggle';
-import { usePathname, useRouter } from 'next/navigation';
 
 const links = [
   { id: 1, title: 'Home', url: '/' },

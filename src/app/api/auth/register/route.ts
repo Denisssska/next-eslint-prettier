@@ -6,7 +6,7 @@ import User from '@/models/User';
 import connect from '@/utils/db';
 
 export const POST = async (request: Request) => {
-  const { name, email, password } = await request.json();
+  const { name, email, image, password } = await request.json();
 
   await connect();
 
@@ -15,6 +15,7 @@ export const POST = async (request: Request) => {
   const newUser = new User({
     name,
     email,
+    image,
     password: hashedPassword,
   });
 
