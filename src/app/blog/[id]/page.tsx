@@ -41,10 +41,10 @@ const BlogId: NextPage<IdParams> = async ({ params }) => {
 
 export default BlogId;
 //ssg
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
+// export async function generateStaticParams() {
+//   const posts = await getAllPosts();
 
-  return posts.map(post => ({
-    id: post._id,
-  }));
-}
+//   return posts.map(post => ({
+//     id: post._id,
+//   }));
+// }

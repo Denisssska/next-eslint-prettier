@@ -2,7 +2,7 @@ import { IPost } from '#/types';
 
 export async function getAllPosts(): Promise<Array<IPost>> {
   const res = await fetch('http://localhost:3000/api/posts', {
-    cache: 'force-cache',
+    cache: 'no-store',
   });
 
   if (!res.ok) {
