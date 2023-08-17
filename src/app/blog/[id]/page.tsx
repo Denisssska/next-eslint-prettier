@@ -5,6 +5,7 @@ import styles from './page.module.scss';
 
 import { IdParams } from '#/types';
 import { getOnePost } from '@/app/actions/getOnePost';
+import { getAllPosts } from '@/app/actions/getAllPosts';
 
 export async function generateMetadata({ params }: IdParams) {
   const post = await getOnePost(params.id);
@@ -39,3 +40,11 @@ const BlogId: NextPage<IdParams> = async ({ params }) => {
 };
 
 export default BlogId;
+//ssg
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+
+  return posts.map(post => ({
+    id: post._id,
+  }));
+}
