@@ -4,8 +4,8 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 
 import { IdParams } from '#/types';
-import { getOnePost } from '@/app/actions/getOnePost';
 import { getAllPosts } from '@/app/actions/getAllPosts';
+import { getOnePost } from '@/app/actions/getOnePost';
 
 export async function generateMetadata({ params }: IdParams) {
   const post = await getOnePost(params.id);
