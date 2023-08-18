@@ -3,7 +3,19 @@ import Link from 'next/link';
 
 import styles from './blog.module.scss';
 
-import { getAllPosts } from '../actions/getAllPosts';
+import { IPost } from '#/types';
+
+async function getAllPosts(): Promise<Array<IPost>> {
+  const res = await fetch('https://next-eslint-prettier-blog.vercel.app/api/posts', {
+    cache: 'no-store',
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
 
 const Blog = async () => {
   const data = await getAllPosts();
