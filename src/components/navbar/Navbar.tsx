@@ -33,7 +33,7 @@ const Navbar = () => {
             <Link
               key={link.id}
               href={link.url}
-              // className={link.title.toLowerCase() === path.slice(1) ? styles.active : styles.default}
+              className={link.title.toLowerCase() === path.slice(1) ? styles.active : styles.default}
             >
               {link.title}
             </Link>

@@ -15,16 +15,6 @@ export async function generateMetadata({ params }: IdParams) {
   };
 }
 
-// async function getOnePost(id: string): Promise<IPost> {
-//   const res = await fetch(`https://next-eslint-prettier-blog.vercel.app/api/posts/${id}`);
-
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data');
-//   }
-
-//   return res.json();
-// }
-
 const BlogId: NextPage<IdParams> = async ({ params }) => {
   const data = await getOnePost(params.id);
   return (
