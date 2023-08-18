@@ -3,7 +3,9 @@ import Image from 'next/image';
 
 import styles from './page.module.scss';
 
-import { IdParams, IPost } from '#/types';
+import { IdParams } from '#/types';
+import { getAllPosts } from '@/app/actions/getAllPosts';
+import { getOnePost } from '@/app/actions/getOnePost';
 
 export async function generateMetadata({ params }: IdParams) {
   const post = await getOnePost(params.id);
@@ -13,15 +15,15 @@ export async function generateMetadata({ params }: IdParams) {
   };
 }
 
-async function getOnePost(id: string): Promise<IPost> {
-  const res = await fetch(`https://next-eslint-prettier-blog.vercel.app/api/posts/${id}`);
+// async function getOnePost(id: string): Promise<IPost> {
+//   const res = await fetch(`https://next-eslint-prettier-blog.vercel.app/api/posts/${id}`);
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data');
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 const BlogId: NextPage<IdParams> = async ({ params }) => {
   const data = await getOnePost(params.id);
@@ -49,10 +51,10 @@ const BlogId: NextPage<IdParams> = async ({ params }) => {
 
 export default BlogId;
 //ssg
-// export async function generateStaticParams() {
-//   const posts = await getAllPosts();
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
 
-//   return posts.map(post => ({
-//     id: post._id,
-//   }));
-// }
+  return posts.map(post => ({
+    id: post._id,
+  }));
+}
