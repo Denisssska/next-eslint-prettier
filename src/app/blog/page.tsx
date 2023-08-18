@@ -7,7 +7,7 @@ import { IPost } from '#/types';
 
 async function getAllPosts(): Promise<Array<IPost>> {
   const res = await fetch('https://next-eslint-prettier-blog.vercel.app/api/posts', {
-    cache: 'no-store',
+    cache: 'force-cache',
   });
 
   if (!res.ok) {
