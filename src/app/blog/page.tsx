@@ -5,20 +5,9 @@ import styles from './blog.module.scss';
 
 import { getAllPosts } from '../actions/getAllPosts';
 
-// async function getAllPosts(): Promise<Array<IPost>> {
-//   const res = await fetch('https://next-eslint-prettier-blog.vercel.app/api/posts', {
-//     cache: 'force-cache',
-//   });
-
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data');
-//   }
-
-//   return res.json();
-// }
-
 const Blog = async () => {
   const data = await getAllPosts();
+  console.log(data);
 
   return (
     <div className={styles.mainContainer}>

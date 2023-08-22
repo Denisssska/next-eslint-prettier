@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 import { IPost } from '#/types';
@@ -7,9 +8,16 @@ import connect from '@/utils/db';
 export const GET = async (request: Request) => {
   const url = new URL(request.url);
   const username = url.searchParams.get('username');
+  const path = url.searchParams.get('title');
   let posts: IPost[];
   try {
     await connect();
+    if (path) {
+      // Ревалидируем кеш страницы постов
+      revalidatePath(path);
+      posts = await Post.find();
+      return NextResponse.json({ revalidated: true, now: Date.now(), posts });
+    }
     if (username) {
       posts = await Post.find({ username });
     } else {
