@@ -48,7 +48,7 @@ const Dashboard = () => {
     const content = (e.currentTarget[3] as HTMLInputElement).value;
 
     try {
-      await fetch(`/api/posts?title=/${title}`, {
+      await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
           title,
