@@ -5,7 +5,6 @@ import styles from './blog.module.scss';
 
 import { getAllPosts } from '../actions/getAllPosts';
 
-export const revalidate = 10;
 const Blog = async () => {
   const data = await getAllPosts();
 
