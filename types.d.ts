@@ -1,3 +1,7 @@
+export interface IMeta {
+  title: string;
+  description?: string;
+}
 export interface IButton {
   text: string;
   url: string;

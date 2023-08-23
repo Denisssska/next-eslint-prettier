@@ -3,7 +3,7 @@ import { IPost } from '#/types';
 export async function getAllPosts(): Promise<Array<IPost>> {
   const res = await fetch('https://next-eslint-prettier-blog.vercel.app/api/posts', {
     cache: 'force-cache',
-    next: { revalidate: 5 },
+    // next: { revalidate: 5 },
   });
 
   if (!res.ok) {
