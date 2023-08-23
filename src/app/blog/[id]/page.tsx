@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 
+import { notFound } from 'next/navigation';
+
 import styles from './page.module.scss';
 
 import { IdParams } from '#/types';
@@ -9,14 +11,17 @@ import { getOnePost } from '@/app/actions/getOnePost';
 
 export async function generateMetadata({ params }: IdParams) {
   const post = await getOnePost(params.id);
+  if (!post) return notFound();
   return {
-    title: post.title,
-    description: post.desc,
+    title: post.title || 'none',
+    description: post.desc || 'none',
   };
 }
 
 const BlogId: NextPage<IdParams> = async ({ params }) => {
   const data = await getOnePost(params.id);
+
+  if (!data) return <p>loading</p>;
   return (
     <div className={styles.container}>
       <div className={styles.top}>

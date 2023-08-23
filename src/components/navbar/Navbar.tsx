@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className={styles.container}>
       <Link href="/" className={styles.logo}>
-        MyApp
+        NEXT-APP
       </Link>
       <div className={styles.links}>
         <DarkModeToggle />
