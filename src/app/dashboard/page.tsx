@@ -81,7 +81,7 @@ const Dashboard = () => {
       <div className={styles.container}>
         <div className={styles.posts}>
           {isLoading
-            ? 'Loading'
+            ? 'loading'
             : data?.map(post => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>

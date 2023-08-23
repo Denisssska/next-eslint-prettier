@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -5,6 +6,10 @@ import styles from './blog.module.scss';
 
 import { getAllPosts } from '../actions/getAllPosts';
 
+export const metadata: Metadata = {
+  title: 'Next-Blog-Page',
+  description: 'Page about posts',
+};
 const Blog = async () => {
   const data = await getAllPosts();
 
