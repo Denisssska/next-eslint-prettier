@@ -10,7 +10,7 @@ export const GET = async (request: Request) => {
   const page: string = url.searchParams.get('page') || '1';
   const regex = new RegExp(query!, 'i');
   console.log('q and page', query, page);
-  const ITEM_PER_PAGE = 2;
+  // const ITEM_PER_PAGE = 2;
   const username = url.searchParams.get('username');
   let posts: IPost[];
   try {
