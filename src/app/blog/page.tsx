@@ -6,9 +6,8 @@ import { FC } from 'react';
 
 import styles from './blog.module.scss';
 
-import Search from './search/Search';
-
 import { getAllPosts } from '../actions/getAllPosts';
+import Search from '../search/Search';
 
 export const metadata: Metadata = {
   title: 'Next-Blog-Page',
