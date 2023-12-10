@@ -2,7 +2,11 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { FC } from 'react';
+
 import styles from './blog.module.scss';
+
+import Search from './search/Search';
 
 import { getAllPosts } from '../actions/getAllPosts';
 
@@ -10,11 +14,21 @@ export const metadata: Metadata = {
   title: 'Next-Blog-Page',
   description: 'Page about posts',
 };
-const Blog = async () => {
-  const data = await getAllPosts();
+interface IBlog {
+  searchParams?: { q: string; page: string };
+}
+const Blog: FC<IBlog> = async ({ searchParams }) => {
+  //для другого проекта
+  const q = searchParams?.q || '';
+  // const page = searchParams?.page;
+  ///
+  console.log('17', searchParams);
+  const data = await getAllPosts(q);
 
   return (
     <div className={styles.mainContainer}>
+      {/* для другого проекта */}
+      <Search placeholder="Search for a post name..." />
       {data.map(item => (
         <Link href={`blog/${item._id}`} className={styles.container} key={item._id}>
           <div className={styles.imageContainer}>

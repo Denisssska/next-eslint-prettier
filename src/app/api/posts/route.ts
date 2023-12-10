@@ -6,6 +6,11 @@ import connect from '@/utils/db';
 
 export const GET = async (request: Request) => {
   const url = new URL(request.url);
+  const query = url.searchParams.get('q');
+  const page: string = url.searchParams.get('page') || '1';
+  const regex = new RegExp(query!, 'i');
+  console.log('q and page', query, page);
+  const ITEM_PER_PAGE = 2;
   const username = url.searchParams.get('username');
   let posts: IPost[];
   try {
@@ -13,7 +18,10 @@ export const GET = async (request: Request) => {
     if (username) {
       posts = await Post.find({ username });
     } else {
-      posts = await Post.find();
+      // const count = await Post.find({ title: { $regex: regex } }).count();
+      posts = await Post.find({ title: { $regex: regex } });
+      // .limit(ITEM_PER_PAGE)
+      // .skip(ITEM_PER_PAGE * (page - 1));
     }
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (error) {
