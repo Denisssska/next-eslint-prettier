@@ -1,5 +1,5 @@
-import './globals.scss';
 import { Inter } from 'next/font/google';
+import './globals.scss';
 
 import { ClientOnlyProps } from '#/types';
 import AuthProvider from '@/components/authProvider/AuthProvider';

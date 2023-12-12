@@ -22,10 +22,7 @@ const Search = ({ placeholder }: { placeholder: string }) => {
     },
     1000
   );
-  // console.log('====================================');
-  // console.log(searchParams);
-  // console.log(pathname);
-  // console.log('====================================');
+
   return (
     <div style={{ marginBottom: '10px' }}>
       <input type="text" placeholder={placeholder} onChange={handleSearch} />
