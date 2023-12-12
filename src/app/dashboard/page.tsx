@@ -1,7 +1,7 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 
 import { FormEvent, useEffect } from 'react';
 import useSWR from 'swr';
@@ -27,11 +27,13 @@ const Dashboard = () => {
     });
   };
 
-  const { data, mutate, error, isLoading } = useSWR<IPost[], Error>(
+  const { data, mutate, error, isLoading } = useSWR<any, Error>(
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
+  const posts: IPost[] = data?.posts;
   console.log('dashboard', session);
+  console.log('data', data);
 
   if (session.status == 'loading') {
     return <p>Loading...</p>;
@@ -82,7 +84,7 @@ const Dashboard = () => {
         <div className={styles.posts}>
           {isLoading
             ? 'loading'
-            : data?.map(post => (
+            : posts.map(post => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
                     <Image src={post.img} alt={post.title} width={200} height={100} />
